@@ -5,7 +5,7 @@ module "my_ecr" {
   name                 = "my_ecr"
   scan_on_push         = true
   timeouts_delete      = "20m"
-  image_tag_mutability = "MUTABLE"
+  image_tag_mutability = "IMMUTABLE"
   policy               = data.aws_iam_policy_document.ecr_policy_doc.json
   encryption_type      = "KMS"
 }
