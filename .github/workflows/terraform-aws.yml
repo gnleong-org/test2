@@ -27,7 +27,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
+      - uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_wrapper: false
       - name: Terraform init
         id: init
         run: |
