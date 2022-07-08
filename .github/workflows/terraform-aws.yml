@@ -43,7 +43,12 @@ jobs:
         run: |
           terraform show -json tfplan > tfplan.json
           pwd
-          ls -l
+          cat tfplan.json
+      - name: Archive terraform plan
+        uses: actions/upload-artifact@v3
+        with:
+          name: wftfplan
+          path: tfplan.json
   snyk:
     permissions:
       contents: read # for actions/checkout to fetch code
@@ -51,7 +56,10 @@ jobs:
     needs: terraform
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Download tfplan json
+        uses: actions/download-artifact@v3
+        with:
+          name: wftfplan
       - name: Run Snyk to check configuration files for security issues
         # Snyk can be used to break the build when it detects security issues.
         # In this case we want to upload the issues to GitHub Code Scanning
