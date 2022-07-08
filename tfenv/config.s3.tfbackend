@@ -1,0 +1,3 @@
+bucket = "tfstate-gwnlng"
+key    = "test2.tfstate"
+region = "us-east-1"
