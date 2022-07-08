@@ -9,9 +9,3 @@ variable "region" {
   description = "AWS region"
   default     = null
 }
-
-variable "external_id" {
-  type        = string
-  description = "assume role external id"
-  default     = null
-}
