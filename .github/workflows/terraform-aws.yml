@@ -40,7 +40,10 @@ jobs:
           terraform plan -input=false -var account_id=${{ secrets.ACCOUNT_ID }} -var region=us-east-1 -no-color -out=tfplan
       - name: Terraform show
         id: show
-        run: terraform show -json tfplan > tfplan.json
+        run: |
+          terraform show -json tfplan > tfplan.json
+          pwd
+          ls -l
   snyk:
     permissions:
       contents: read # for actions/checkout to fetch code
@@ -63,7 +66,7 @@ jobs:
           # For example `deployment.yaml` for a Kubernetes deployment manifest
           # or `main.tf` for a Terraform configuration file
           file: tfplan.json
-      - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: snyk.sarif
+#      - name: Upload result to GitHub Code Scanning
+#        uses: github/codeql-action/upload-sarif@v2
+#        with:
+#          sarif_file: snyk.sarif
