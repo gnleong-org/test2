@@ -21,3 +21,7 @@ data "aws_iam_policy_document" "ecr_policy_doc" {
     }
   }
 }
+
+resource "aws_ecr_repository" "foo" {
+  name = "bar"
+}
