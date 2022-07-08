@@ -39,6 +39,9 @@ jobs:
         run: |
           terraform plan -input=false -var account_id=${{ secrets.ACCOUNT_ID }} -var region=us-east-1 -no-color -out=tfplan
           terraform show -json tfplan > tfplan.json
+      - name: Terraform show
+        id: show
+        run: terraform show -json tfplan > tfplan.json
   snyk:
     permissions:
       contents: read # for actions/checkout to fetch code
