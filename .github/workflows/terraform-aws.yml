@@ -21,7 +21,7 @@ jobs:
       - name: check github context
         run: echo '${{ toJSON(github) }}'
   terraform:
-    if: github.repository == 'gnleong/test2'
+    if: github.repository == 'gnleong/test2' && github.actor == 'gnleong'
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env:
