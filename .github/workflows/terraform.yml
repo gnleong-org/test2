@@ -55,6 +55,7 @@ permissions:
 
 jobs:
   terraform:
+    if: github.repository == 'gnleong/test2'
     name: 'Terraform'
     runs-on: ubuntu-latest
     environment: production
