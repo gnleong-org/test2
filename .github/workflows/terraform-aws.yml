@@ -15,6 +15,11 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  printenv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check github context
+        run: echo "GITHUB_CONTEXT"
   terraform:
     if: github.repository == 'gnleong/test2'
     # The type of runner that the job will run on
