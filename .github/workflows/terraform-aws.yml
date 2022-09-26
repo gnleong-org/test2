@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check github context
-        run: echo "$GITHUB_CONTEXT"
+        run: echo '${{ toJSON(github) }}'
   terraform:
     if: github.repository == 'gnleong/test2'
     # The type of runner that the job will run on
