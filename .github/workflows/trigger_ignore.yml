@@ -1,0 +1,15 @@
+name: trigger_ignore
+
+on:
+  push:
+    paths:
+      - '.snyk'
+
+jobs:
+  tell_me:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify people
+        id: notifypeople
+        run: |
+          echo ".snyk change detected"
