@@ -3,5 +3,14 @@
   "extends": [
     "config:base"
   ],
-  "prHourlyLimit": 3
+  "prHourlyLimit": 3,
+  "regexManagers": [
+    {
+      "fileMatch": ["^.snyk$"],
+      "matchStrings": [
+        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\ssnyk.*?_version=(?<currentValue>.*)\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    }
+  ]
 }
