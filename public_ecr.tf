@@ -1,6 +1,6 @@
 module "my_ecr" {
   source  = "lgallard/ecr/aws"
-  version = "0.3.2"
+  version = "0.4.2"
   # insert the 5 required variables here
   name                 = "my_ecr"
   scan_on_push         = true
