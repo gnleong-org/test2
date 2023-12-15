@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download tfplan json
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: wftfplan
       - name: Run Snyk to check configuration files for security issues
