@@ -44,12 +44,12 @@ jobs:
           terraform show -json tfplan > tfplan.json
           terraform state pull > terraform.tfstate
       - name: Archive terraform plan
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: wftfplan
           path: tfplan.json
       - name: Archive terraform tfstate
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: wftfstate
           path: terraform.tfstate
